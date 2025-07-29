@@ -10,8 +10,12 @@ if [ ! -d "$source_directory" ]; then
 fi
 
 if [ ! -d "$target_directory" ]; then
-  echo "Проверка целевой директории '$target_directory'"
-  mkdir -p "$target_directory"
+  echo "Целевая директория '$target_directory' не найдена"
+  
+  mkdir -p '$target_directory'
+  echo "Создана целевая директория: '$target_directory'"
+else
+  echo "Целивая директория'$target_directory' уже существует"
 fi
 
 
