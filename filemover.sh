@@ -16,7 +16,7 @@ fi
 
 if [ ! -d "$target_directory" ]; then
   echo "Целевая директория $target_directory не существует или недоступна."
-  exit 1
+  mkdir -p $target_directory
 fi
 
 echo "Обе директории существуют и доступны."
