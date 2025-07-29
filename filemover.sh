@@ -7,10 +7,11 @@ read -p "Введите целевую директорию: " target_directory
 if [ ! -d "$source_directory" ]; then
   echo "Проверка исходной директории '$source_directory'"
   exit 1
+fi
 
 if [ ! -d "$target_directory" ]; then
   echo "Проверка целевой директории '$target_directory'"
-  mkdir target_directory
+  mkdir -p "$target_directory"
 fi
 
 
