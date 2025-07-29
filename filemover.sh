@@ -4,6 +4,16 @@
 read -p "Введите исходную директорию: " source_directory
 read -p "Введите целевую директорию: " target_directory
 
+if [ ! -d "$source_directory" ]; then
+  echo "Проверка исходной директории '$source_directory'"
+  exit 1
+
+if [ ! -d "$target_directory" ]; then
+  echo "Проверка целевой директории '$target_directory'"
+  mkdir target_directory
+fi
+
+
 # Запрос расширения файлов, которые нужно скопировать
 
 # Запросить новое расширение для файлов.
