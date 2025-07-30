@@ -13,5 +13,7 @@
 
 # Копирование файлов с указанным расширением в целевую директорию
 
-# Архивация исходных файлов.
+# Архивация данных
 
+arcive_name="old_file_$(date +%Y%M%D).tar.gz"
+tar -czf "$target_directory"/"$archive_name"  "$source_directory"/*."$file_extension"
