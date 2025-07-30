@@ -10,22 +10,16 @@
 
 
 # Проверка, есть ли файлы с указанным расширением в исходной директории
-EXTENSION="$1"
 
-#--Проверка, было ли переданно расширение
-if [ -z "EXTENSION" ]; then
-	echo "Ошибка: Расширение файла не указано"
-	exit 1
-fi
 #--Поиск файлов с указанным расширением в тек. директории
-FILE_FOUNDER=$(find . -type f -name "*.$EXTENSION")
+FILE_FOUNDER=$(find $source_directory -type f -name "*.$file_extension")
 
 #--проверка на наличия файлов
 if [ -z "$FILE_FOUNDER" ]; then
-	echo "Ошибка: Файлы с расширением .$EXTENSION не были найдены"
+	echo "Ошибка: Файлы с расширением .$file_extension не были найдены"
 	exit 1
 else
-	echo "Были найдены файлы с расширением .$EXTENSION:"
+	echo "Были найдены файлы с расширением .$file_extension "
 	echo "Найденые файлы: $FILE_FOUNDER"
 fi
 # Копирование файлов с указанным расширением в целевую директорию
