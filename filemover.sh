@@ -12,6 +12,11 @@
 # Проверка, есть ли файлы с указанным расширением в исходной директории
 
 # Копирование файлов с указанным расширением в целевую директорию
-
+for file in $source_directory/*$file_extension; do
+	new_file="$target_directory/${file##*/}"
+  	new_file="${new_file%.*}.$new_file_extension"
+    	cp "$file" "$new_file"
+  	echo "Copy: $file → $new_file"
+done
 # Архивация исходных файлов.
 
