@@ -7,7 +7,7 @@
 read -p "Введите расширение файлов для копирования" file_extension 
 # дополнительная задача: добавить проверку существования файлов с заданным расширением
 file_check=$(find "$source_directory" -type f -name "*$file_extension")
-if [[ -z "$file_check" ]]; then
+if [[ ! -z "$file_check" ]]; then
     echo "Файлы с расширением $file_extension не найдены в $source_directory"
 else
     echo "Найдены файлы:"
