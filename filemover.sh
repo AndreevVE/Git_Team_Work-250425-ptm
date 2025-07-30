@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Запрос исходной и целевой директории у пользователя
 read -p "Введите путь к исходной директорий: " source_directory
 read -p "Введите путь к целевой директории: " target_directory
@@ -50,6 +51,30 @@ else
 	echo "Найденые файлы: $FILE_FOUNDER"
 fi
 # Копирование файлов с указанным расширением в целевую директорию
+#source_directory="c:/Users/1/300725_old"
+#target_directory="c:/Users/1/300725_new"
+#file_extension="sql"
+#new_file_extension="txt"
+
+counter=0
+
+for file in "$source_directory"/*."$file_extension"
+do
+  if [ -f "$file" ]; then
+        filename=$(basename "$file")
+        new_filename="${filename%$file_extension}$new_file_extension"
+        
+        if cp -v "$file" "$target_directory/$new_filename"; then
+            echo "Успешно скопирован: $filename -> $new_filename"
+            ((counter++))
+        else
+            echo "Ошибка при копировании $filename"
+        fi
+  fi
+
+done
+
+echo "Готово! Скопировано файлов: $counter"
 
 # Архивация данных
 
